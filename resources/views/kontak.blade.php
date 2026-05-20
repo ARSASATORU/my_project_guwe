@@ -1,38 +1,36 @@
-@extends('app')
+@extends('partials.app')
 
 @section('content')
-<div style="max-width:500px; margin:auto; padding:40px;">
-    <h1 style="font-size:28px; font-weight:bold;">Hubungi Kami </h1>
 
-    <form style="margin-top:20px;">
-        <input type="text" placeholder="Nama"
-            style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px;">
+<div class="container mx-auto p-6">
 
-        <input type="email" placeholder="Email"
-            style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px;">
+    <div class="bg-white rounded-xl shadow p-8">
 
-        <textarea placeholder="Pesan"
-            style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px;"></textarea>
+        <h1 class="text-4xl font-bold text-blue-600 mb-6">
+            Kontak Kami
+        </h1>
 
-        <button style="padding:10px; background:#3b82f6; color:white; border:none; border-radius:8px;">
-            Kirim
-        </button>
-    </form>
+        <div class="space-y-4 text-lg">
 
-    <hr style="margin:30px 0;">
+            <p>
+                📞 Nomor Telepon:
+                081234567890
+            </p>
 
-    <div style="padding:20px; border-radius:15px; background:#f3f4f6;">
-        <h2 style="font-size:22px; font-weight:bold;"> Ingin Berdonasi?</h2>
-        <p>Dukungan Anda sangat berarti bagi kami.</p>
+            <p>
+                📧 Email:
+                pedulibersama@gmail.com
+            </p>
 
-        <form style="margin-top:15px;">
-            <input type="number" placeholder="Nominal Donasi"
-                style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px;">
+            <p>
+                📍 Alamat:
+                Pontianak, Kalimantan Barat
+            </p>
 
-            <button style="width:100%; padding:10px; border:none; border-radius:8px; background:#3b82f6; color:white;">
-                Kirim Donasi
-            </button>
-        </form>
+        </div>
+
     </div>
+
 </div>
+
 @endsection

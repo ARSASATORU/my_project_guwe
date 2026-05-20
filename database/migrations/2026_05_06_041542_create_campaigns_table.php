@@ -9,18 +9,29 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up(): void
-{
-    Schema::create('campaigns', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->text('description');
-        $table->integer('target_donation');
-        $table->integer('collected_donation')->default(0);
-        $table->date('deadline');
-        $table->timestamps();
-    });
-}
+    public function up(): void
+    {
+        Schema::create('campaigns', function (Blueprint $table) {
+
+            $table->id();
+
+            $table->string('title');
+
+            $table->text('description');
+
+            $table->string('phone');
+
+            $table->integer('target_donation');
+
+            $table->integer('collected_donation')->default(0);
+
+            $table->date('deadline');
+
+            $table->timestamps();
+
+        });
+    }
+
     /**
      * Reverse the migrations.
      */

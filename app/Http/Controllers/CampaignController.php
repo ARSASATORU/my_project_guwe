@@ -10,6 +10,7 @@ class CampaignController extends Controller
     public function index()
     {
         $campaigns = Campaign::all();
+
         return view('campaign.index', compact('campaigns'));
     }
 
@@ -20,9 +21,36 @@ class CampaignController extends Controller
 
     public function store(Request $request)
     {
-        Campaign::create($request->all());
+        $request->validate([
 
-        return redirect('/campaign');
+            'title' => 'required',
+
+            'description' => 'required',
+
+            'target_donation' => 'required|numeric',
+
+            'collected_donation' => 'required|numeric',
+
+            'deadline' => 'required'
+
+        ]);
+
+        Campaign::create([
+
+            'title' => $request->title,
+
+            'description' => $request->description,
+
+            'target_donation' => $request->target_donation,
+
+            'collected_donation' => $request->collected_donation,
+
+            'deadline' => $request->deadline
+
+        ]);
+
+        return redirect('/campaign')
+            ->with('success', 'Campaign berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -36,17 +64,45 @@ class CampaignController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+
+            'title' => 'required',
+
+            'description' => 'required',
+
+            'target_donation' => 'required|numeric',
+
+            'collected_donation' => 'required|numeric',
+
+            'deadline' => 'required'
+
+        ]);
+
         $campaign = Campaign::findOrFail($id);
 
-        $campaign->update($request->all());
+        $campaign->update([
 
-        return redirect('/campaign');
+            'title' => $request->title,
+
+            'description' => $request->description,
+
+            'target_donation' => $request->target_donation,
+
+            'collected_donation' => $request->collected_donation,
+
+            'deadline' => $request->deadline
+
+        ]);
+
+        return redirect('/campaign')
+            ->with('success', 'Campaign berhasil diupdate');
     }
 
     public function destroy($id)
     {
         Campaign::destroy($id);
 
-        return redirect('/campaign');
+        return redirect('/campaign')
+            ->with('success', 'Campaign berhasil dihapus');
     }
 }
